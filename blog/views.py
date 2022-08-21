@@ -7,7 +7,7 @@ from django.shortcuts import redirect
 
 # Create your views here.
 def post_list(request):
-    post = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
+    post = Post.objects.filter(created_date__lte=timezone.now()).order_by('created_date')
     return render(request, 'blog/post_list.html', {'post': post})
 
 def post_detail(request, pk):
